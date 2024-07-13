@@ -6,7 +6,8 @@
     <title>TradingView Widget</title>
     <style>
         body {
-            background-color: #1E222D;
+            background-color: rgba(19, 23, 34, 0.5); /* Color de fondo semi-transparente */
+            backdrop-filter: blur(10px); /* Desenfoque de fondo */
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -32,17 +33,17 @@
             "showChart": true,
             "locale": "en",
             "largeChartUrl": "",
-            "isTransparent": false,
+            "isTransparent": true,
             "showSymbolLogo": true,
             "showFloatingTooltip": false,
             "width": "400",
             "height": "550",
             "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-            "plotLineColorFalling": "rgba(41, 98, 255, 1)",
-            "gridLineColor": "rgba(42, 46, 57, 0)",
+            "plotLineColorFalling": "rgba(17, 85, 204, 1)",
+            "gridLineColor": "rgba(0, 0, 0, 0)",
             "scaleFontColor": "rgba(209, 212, 220, 1)",
             "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-            "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+            "belowLineFillColorFalling": "rgba(66, 66, 66, 0.12)",
             "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
             "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
             "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
@@ -54,22 +55,4 @@
                             "s": "BINANCE:BTCUSDT"
                         },
                         {
-                            "s": "BINANCE:THETAUSDT"
-                        },
-                        {
-                            "s": "BINANCE:TFUELUSDT"
-                        }
-                    ],
-                    "originalTitle": "Indices"
-                },
-                {
-                    "title": "Indices",
-                    "symbols": []
-                }
-            ]
-        }
-        </script>
-    </div>
-    <!-- TradingView Widget END -->
-</body>
-</html>
+    
