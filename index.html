@@ -6,7 +6,7 @@
     <title>TradingView Widget</title>
     <style>
         body {
-            background-color: #0C1117
+            background-color: #131722;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -18,54 +18,58 @@
 </head>
 <body>
     <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-  {
-  "colorTheme": "dark",
-  "dateRange": "12M",
-  "showChart": true,
-  "locale": "en",
-  "largeChartUrl": "",
-  "isTransparent": false,
-  "showSymbolLogo": true,
-  "showFloatingTooltip": false,
-  "width": "400",
-  "height": "550",
-  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-  "plotLineColorFalling": "rgba(17, 85, 204, 1)",
-  "gridLineColor": "rgba(240, 243, 250, 0)",
-  "scaleFontColor": "rgba(209, 212, 220, 1)",
-  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-  "belowLineFillColorFalling": "rgba(66, 66, 66, 0.12)",
-  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-  "tabs": [
-    {
-      "title": "Crypto",
-      "symbols": [
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright">
+            <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+                <span class="blue-text">Track all markets on TradingView</span>
+            </a>
+        </div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
         {
-          "s": "BINANCE:BTCUSDT"
-        },
-        {
-          "s": "BINANCE:THETAUSDT"
-        },
-        {
-          "s": "BINANCE:TFUELUSDT"
+            "colorTheme": "dark",
+            "dateRange": "12M",
+            "showChart": true,
+            "locale": "en",
+            "largeChartUrl": "",
+            "isTransparent": false,
+            "showSymbolLogo": true,
+            "showFloatingTooltip": false,
+            "width": "400",
+            "height": "550",
+            "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+            "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+            "gridLineColor": "rgba(42, 46, 57, 0)",
+            "scaleFontColor": "rgba(209, 212, 220, 1)",
+            "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+            "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+            "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+            "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+            "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+            "tabs": [
+                {
+                    "title": "Crypto",
+                    "symbols": [
+                        {
+                            "s": "BINANCE:BTCUSDT"
+                        },
+                        {
+                            "s": "BINANCE:THETAUSDT"
+                        },
+                        {
+                            "s": "BINANCE:TFUELUSDT"
+                        }
+                    ],
+                    "originalTitle": "Indices"
+                },
+                {
+                    "title": "Indices",
+                    "symbols": []
+                }
+            ]
         }
-      ],
-      "originalTitle": "Indices"
-    },
-    {
-      "title": "Indices",
-      "symbols": []
-    }
-  ]
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
 </body>
 </html>
