@@ -1,127 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradingView Widget</title>
+    <title>Calendario HTML</title>
     <style>
-        body {
-            background-color: #1F222C; /* Color de fondo */
+        :root {
+            color-scheme: light;
+            --bg: #f2f5f9;
+            --card: #ffffff;
+            --primary: #1d4ed8;
+            --primary-soft: #dbeafe;
+            --text: #0f172a;
+            --muted: #64748b;
+            --today: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            height: 100vh;
+            font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #e2e8f0, var(--bg));
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            color: var(--text);
+        }
+
+        .calendar {
+            width: min(100%, 420px);
+            background: var(--card);
+            border-radius: 16px;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+            overflow: hidden;
+        }
+
+        .calendar__header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 16px 18px;
+            background: linear-gradient(135deg, #1e3a8a, var(--primary));
+            color: #fff;
+        }
+
+        .calendar__month {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .calendar__button {
+            border: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+
+        .calendar__button:hover {
+            background: rgba(255, 255, 255, 0.32);
+            transform: scale(1.05);
+        }
+
+        .calendar__grid {
+            padding: 16px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .calendar__weekday {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .calendar__day {
+            border: 1px solid transparent;
+            min-height: 44px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: 0.95rem;
+            background: #f8fafc;
+            color: var(--text);
+        }
+
+        .calendar__day--outside {
+            color: #94a3b8;
+            background: #f1f5f9;
+        }
+
+        .calendar__day--today {
+            background: var(--primary-soft);
+            border-color: var(--today);
+            color: #065f46;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright">
-            <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-                <span class="blue-text">Track all markets on TradingView</span>
-            </a>
-        </div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-        {
-            "colorTheme": "dark",
-            "dateRange": "12M",
-            "showChart": true,
-            "locale": "en",
-            "width": "100%",
-            "height": "100%",
-            "largeChartUrl": "",
-            "isTransparent": false,
-            "showSymbolLogo": true,
-            "showFloatingTooltip": false,
-            "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-            "plotLineColorFalling": "rgba(41, 98, 255, 1)",
-            "gridLineColor": "rgba(240, 243, 250, 0)",
-            "scaleFontColor": "rgba(209, 212, 220, 1)",
-            "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-            "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-            "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-            "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-            "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-            "tabs": [
-                {
-                    "title": "Crypto",
-                    "symbols": [
-                        {
-                            "s": "BINANCE:TFUELUSDT"
-                        },
-                        {
-                            "s": "BINANCE:BTCUSDT"
-                        },
-                        {
-                            "s": "BINANCE:THETAUSDT"
-                        }
-                    ],
-                    "originalTitle": "Indices"
-                },
-                {
-                    "title": "Futures",
-                    "symbols": [
-                        {
-                            "s": "CME_MINI:ES1!",
-                            "d": "S&P 500"
-                        },
-                        {
-                            "s": "CME:6E1!",
-                            "d": "Euro"
-                        },
-                        {
-                            "s": "COMEX:GC1!",
-                            "d": "Gold"
-                        },
-                        {
-                            "s": "NYMEX:CL1!",
-                            "d": "WTI Crude Oil"
-                        },
-                        {
-                            "s": "NYMEX:NG1!",
-                            "d": "Gas"
-                        },
-                        {
-                            "s": "CBOT:ZC1!",
-                            "d": "Corn"
-                        }
-                    ],
-                    "originalTitle": "Futures"
-                },
-                {
-                    "title": "Bonds",
-                    "symbols": [
-                        {
-                            "s": "CBOT:ZB1!",
-                            "d": "T-Bond"
-                        },
-                        {
-                            "s": "CBOT:UB1!",
-                            "d": "Ultra T-Bond"
-                        },
-                        {
-                            "s": "EUREX:FGBL1!",
-                            "d": "Euro Bund"
-                        },
-                        {
-                            "s": "EUREX:FBTP1!",
-                            "d": "Euro BTP"
-                        },
-                        {
-                            "s": "EUREX:FGBM1!",
-                            "d": "Euro BOBL"
-                        }
-                    ],
-                    "originalTitle": "Bonds"
+    <main class="calendar" aria-label="Calendario mensual">
+        <header class="calendar__header">
+            <button id="prevMonth" class="calendar__button" aria-label="Mes anterior">&#10094;</button>
+            <h1 id="monthLabel" class="calendar__month"></h1>
+            <button id="nextMonth" class="calendar__button" aria-label="Mes siguiente">&#10095;</button>
+        </header>
+
+        <section class="calendar__grid" id="calendarGrid"></section>
+    </main>
+
+    <script>
+        const monthLabel = document.getElementById("monthLabel");
+        const calendarGrid = document.getElementById("calendarGrid");
+        const prevMonthBtn = document.getElementById("prevMonth");
+        const nextMonthBtn = document.getElementById("nextMonth");
+
+        const weekdays = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+        const today = new Date();
+        let currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
+
+        const formatMonth = (date) =>
+            new Intl.DateTimeFormat("es-ES", { month: "long", year: "numeric" }).format(date);
+
+        const getMondayBasedWeekday = (date) => {
+            const day = date.getDay();
+            return day === 0 ? 6 : day - 1;
+        };
+
+        function renderCalendar() {
+            calendarGrid.innerHTML = "";
+            monthLabel.textContent = formatMonth(currentDate).replace(/^./, (char) => char.toUpperCase());
+
+            weekdays.forEach((weekday) => {
+                const weekdayEl = document.createElement("div");
+                weekdayEl.className = "calendar__weekday";
+                weekdayEl.textContent = weekday;
+                calendarGrid.appendChild(weekdayEl);
+            });
+
+            const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+            const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+            const startOffset = getMondayBasedWeekday(firstDay);
+            const totalCells = Math.ceil((startOffset + lastDay.getDate()) / 7) * 7;
+
+            for (let index = 0; index < totalCells; index += 1) {
+                const dayNumber = index - startOffset + 1;
+                const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), dayNumber);
+                const dayEl = document.createElement("div");
+                dayEl.className = "calendar__day";
+                dayEl.textContent = date.getDate();
+
+                if (date.getMonth() !== currentDate.getMonth()) {
+                    dayEl.classList.add("calendar__day--outside");
                 }
-            ]
+
+                if (
+                    date.getDate() === today.getDate() &&
+                    date.getMonth() === today.getMonth() &&
+                    date.getFullYear() === today.getFullYear()
+                ) {
+                    dayEl.classList.add("calendar__day--today");
+                }
+
+                calendarGrid.appendChild(dayEl);
+            }
         }
-        </script>
-    </div>
-    <!-- TradingView Widget END -->
+
+        prevMonthBtn.addEventListener("click", () => {
+            currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
+            renderCalendar();
+        });
+
+        nextMonthBtn.addEventListener("click", () => {
+            currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+            renderCalendar();
+        });
+
+        renderCalendar();
+    </script>
 </body>
 </html>
